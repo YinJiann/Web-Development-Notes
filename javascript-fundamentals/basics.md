@@ -1,4 +1,4 @@
-# Syntax
+# Basics
 
 **Variable Declaration**
 
@@ -132,3 +132,25 @@ Coercion: Implicitly done
 const age = 23
 console.log("I am " + age + " years old.");
 ```
+
+
+
+**Control Flow**
+
+* if, else if, else statements
+* switch statements
+
+
+
+**Strict mode**
+
+* Prevents use of reserved keywords
+* Identify potential errors in code
+
+```javascript
+//Use this at the top of the code
+'use strict';
+```
+
+
+
