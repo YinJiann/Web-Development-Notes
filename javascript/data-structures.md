@@ -67,11 +67,19 @@ array.includes(element);
 
 ```javascript
 const example = {
-    "firstName": "Yin",
-    "lastName": "Jian",
-    "age": 26,
+    firstName: "Yin",
+    lastName: "Jian",
+    age: 26,
 };
 ```
+
+#### Data Add
+
+```javascript
+example.new_key = "new_value"
+```
+
+
 
 #### Data access
 
@@ -85,5 +93,30 @@ object.key
 
 ```
 object[key]
+```
+
+
+
+#### Functions in Object
+
+* "this" keyword for functions in objects
+
+```javascript
+const example = {
+    //Properties
+    
+    //Function in an object, must be written as function expression
+    function_name_1: function (param1) {
+        return result;
+    },
+    
+    function_name_2: function(){
+        a = b + this.key;
+        return result;
+    }
+};
+
+console.log(example.function_name_1(arg1));
+console.log(example.function_name_2());
 ```
 

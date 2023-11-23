@@ -139,6 +139,16 @@ console.log("I am " + age + " years old.");
 
 * if, else if, else statements
 * switch statements
+* For loops
+
+```javascript
+for (let i = 0; i < 10; i++) {
+    console.log(i);
+}
+```
+
+* for each loops
+* while loops
 
 
 
