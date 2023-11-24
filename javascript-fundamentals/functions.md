@@ -31,7 +31,7 @@ const function_name = function (param1, param2) {
 **Arrow Function**
 
 * Has no "this" keyword
-* Has no access to argument execution context?
+* Use case: when calling a function in a function, so that it can use parent's scope (this)
 
 ```javascript
 const function_name = (param1, param2) => {

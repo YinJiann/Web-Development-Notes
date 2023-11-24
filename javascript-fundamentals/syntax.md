@@ -85,7 +85,9 @@ birth = 1990
 * Logical
   * &&
   * ||
+  * ?? : nullish comparison
   * !
+  * ?. : optional chaining, check whether something exist
 *   Assignment
 
     * \=
@@ -148,6 +150,14 @@ for (let i = 0; i < 10; i++) {
 ```
 
 * for each loops
+* for of loops
+
+```javascript
+for (let i of arr) {
+  //actions on i
+}
+```
+
 * while loops
 
 
