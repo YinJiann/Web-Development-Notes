@@ -1,6 +1,6 @@
 # Basics
 
-**Variable Declaration**
+## **Variable Declaration**
 
 1. "let": Variables that will change during runtime
 
@@ -32,7 +32,7 @@ birth = 1990
 
 
 
-**Primitive Data Types**
+## **Primitive Data Types**
 
 * Dynamic typing: Variable is not assigned a data type. Value determines the data type.
 
@@ -48,7 +48,7 @@ birth = 1990
 
 
 
-**Comment**
+## **Comment**
 
 * Single line comment
 
@@ -66,7 +66,7 @@ birth = 1990
 
 
 
-**Operators**
+## **Operators**
 
 * Math
   * \+
@@ -94,7 +94,7 @@ birth = 1990
 
 
 
-**String Concatenation**
+## **String Concatenation**
 
 * Use +
 * Use \`\`: Template strings or multi line strings
@@ -113,7 +113,7 @@ lines`)
 
 
 
-**Type conversion and coercion**
+## **Type conversion and coercion**
 
 Conversion: Explicitly done
 
@@ -135,7 +135,7 @@ console.log("I am " + age + " years old.");
 
 
 
-**Control Flow**
+## **Control Flow**
 
 * if, else if, else statements
 * switch statements
@@ -152,7 +152,7 @@ for (let i = 0; i < 10; i++) {
 
 
 
-**Strict mode**
+## **Strict mode**
 
 * Prevents use of reserved keywords
 * Identify potential errors in code
@@ -164,3 +164,19 @@ for (let i = 0; i < 10; i++) {
 
 
 
+## Scope
+
+#### Global Scope
+
+* Variables declared outside of any function/block
+* Variables can be accessed anywhere
+
+#### Function/Local Scope
+
+* Variables can only be accessed within the function itself
+
+#### Block Scope
+
+* Block refers to any code wrapper by { }
+* Variables only accessed in block itself
+  * Applies to only let and const

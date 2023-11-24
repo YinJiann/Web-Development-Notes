@@ -1,6 +1,6 @@
 # Linking a JavaScript File
 
-**Printing to console:**
+**Printing to console**
 
 ```
 // Some code

@@ -97,9 +97,9 @@ object[key]
 
 
 
-#### Functions in Object
+#### Function Declaration in Objects
 
-* "this" keyword for functions in objects
+* For functions to access object properties, use "this" keyword
 
 ```javascript
 const example = {

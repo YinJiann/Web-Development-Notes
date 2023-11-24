@@ -31,6 +31,7 @@ const function_name = function (param1, param2) {
 **Arrow Function**
 
 * Has no "this" keyword
+* Has no access to argument execution context?
 
 ```javascript
 const function_name = (param1, param2) => {

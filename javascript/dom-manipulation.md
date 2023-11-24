@@ -30,6 +30,12 @@ document.querySelectorAll(".message")
 document.querySelector("#message")
 ```
 
+* Alternate way to obtain by ID, no need for "#"
+
+```javascript
+const score1 = document.getElementById("score--1");
+```
+
 #### Text Content
 
 <pre class="language-javascript"><code class="lang-javascript"><strong>document.querySelector(element).textContent
@@ -81,6 +87,16 @@ btnsOpenModal[i].addEventListener("click", function () {
 ```javascript
 btnsOpenModal[i].addEventListener("click", function () {
   modal.classList.remove("hidden");
+});
+```
+
+#### Toggle classes
+
+* .classList.toggle("class1")
+
+```javascript
+btnsOpenModal[i].addEventListener("click", function () {
+  modal.classList.toggle("class1");
 });
 ```
 
