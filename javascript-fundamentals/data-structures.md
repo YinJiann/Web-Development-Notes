@@ -71,6 +71,59 @@ array.indexOf(element);
 array.includes(element);
 ```
 
+* Slicing
+
+```javascript
+array.slice(startIndex, endIndex);
+```
+
+* Splicing
+
+```
+array.splice(startIndex);
+```
+
+* Reverse
+
+```
+array.reverse();
+```
+
+* Array concatenation
+
+```
+array.concat(array2);
+```
+
+* Map: Build brand new array based on operations on current array
+
+```javascript
+const eurToUsd = 1.1;
+
+const movementsUSD = movements.map(function (mov) {
+   return mov * eurToUsd;
+});
+```
+
+* Filter: Build brand new array based on conditions on current array
+
+```javascript
+const deposits = movements.filter(function (mov, i, arr) {
+  return mov > 0;
+});
+```
+
+* Reduce: Reduce whole array into one single value
+
+```javascript
+ const balance = movements.reduce(function (acc, cur, i, arr) {
+   console.log(`Iteration ${i}: ${acc}`);
+   return acc + cur;
+}, 0);
+```
+
+<figure><img src="../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
+
 
 
 #### Destructuring Arrays
