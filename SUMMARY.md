@@ -2,6 +2,7 @@
 
 * [Read Me](README.md)
 * [Developer Tools](developer-tools.md)
+* [API](api.md)
 
 ## HTML
 
