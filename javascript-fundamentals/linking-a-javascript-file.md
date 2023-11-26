@@ -53,3 +53,12 @@ console.log("...")
   <script src="index.js"></script>
 </body>
 ```
+
+
+
+#### When to include script.js
+
+<figure><img src="../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+
+* Either add at the end of the body
+* Or defer in the head

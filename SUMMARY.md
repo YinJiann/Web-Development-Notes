@@ -19,3 +19,4 @@
 * [Data Structures](javascript-fundamentals/data-structures.md)
 * [DOM Manipulation](javascript/dom-manipulation.md)
 * [This](javascript/this.md)
+* [Time and Numbers](javascript/time-and-numbers.md)

@@ -150,6 +150,16 @@ for (let i = 0; i < 10; i++) {
 ```
 
 * for each loops
+  * Arguments passed depends on what data structure it is called on
+    * Arrays: value, index, whole array
+    * Map: value, key, map
+
+```javascript
+[arr].forEach(function(value, index, arr){
+    //Write code
+})
+```
+
 * for of loops
 
 ```javascript

@@ -120,3 +120,108 @@ document.addEventListener("keydown", function (event) {
   }
 });
 ```
+
+
+
+## Element creation and insertion
+
+```javascript
+// Creating and inserting elements
+const message = document.createElement('div');
+message.classList.add('cookie-message');
+message.textContent = 'We use cookied for improved functionality and analytics.';
+message.innerHTML =
+  'We use cookied for improved functionality and analytics. <button class="btn btn--close-cookie">Got it!</button>';
+
+header.prepend(message);
+header.append(message);
+header.append(message.cloneNode(true));
+
+header.before(message);
+header.after(message);
+```
+
+
+
+## Element Deletion
+
+```javascript
+// Delete elements
+document
+  .querySelector('.btn--close-cookie')
+  .addEventListener('click', function () {
+     message.remove();
+  });
+```
+
+
+
+## Changing HTML and CSS attributes
+
+```javascript
+// Non-standard
+console.log(logo.getAttribute('designer'));
+logo.setAttribute('company', 'Bankist');
+
+console.log(logo.getAttribute('src'));
+
+const link = document.querySelector('.nav__link--btn');
+//returns absolute path
+console.log(link.href);
+//returns path written in HTML doc
+console.log(link.getAttribute('href'));
+```
+
+
+
+## Smooth scrolling after hitting button
+
+```javascript
+btnScrollTo.addEventListener('click', function (e) {
+  //section1 is destination
+  document.querySelector("#section1").scrollIntoView({ behavior: 'smooth' });
+}
+```
+
+
+
+## Event propagation
+
+#### Bubbling and capturing
+
+* Capture: When an event occurs, event is generated at top of DOM tree and passed down to target node
+* Bubbling: Event is executed, then passed to top of DOM tree
+* If parent HTML element handles the same event, event will also be triggered during bubbling phase
+* To stop propagation, event.stopPropagation()
+* Use case: Rather than assigning same function to multiple child nodes, implement in the parent node, disable event execution on the parent node if pressed directly, and let bubbling handle the rest.
+
+
+
+## DOM Traversing
+
+* Finding child, parent DOM during runtime
+
+```javascript
+// DOM Traversing
+const h1 = document.querySelector('h1');
+
+// Going downwards: child
+console.log(h1.querySelectorAll('.highlight'));
+console.log(h1.childNodes);
+console.log(h1.children);
+
+// Going upwards: parents
+console.log(h1.parentNode);
+console.log(h1.parentElement);
+
+//Closest parent with defined element
+h1.closest('h1').style.background = 'var(--gradient-primary)';
+
+// Going sideways: siblings
+console.log(h1.previousElementSibling);
+console.log(h1.nextElementSibling);
+
+console.log(h1.previousSibling);
+console.log(h1.nextSibling);
+```
+
