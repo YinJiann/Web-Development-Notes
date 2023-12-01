@@ -60,3 +60,7 @@ import add from './shoppingCart.js';
 * Manage all dependencies
 * At start of project, npm init
   * package.json file will be created
+* parcel
+  * Developer tool to help package all dependencies into one script
+  * Removes dead code
+  * Compresses all code
