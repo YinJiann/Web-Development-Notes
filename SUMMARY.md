@@ -22,3 +22,5 @@
 * [This](javascript/this.md)
 * [Time and Numbers](javascript/time-and-numbers.md)
 * [OOP](javascript/oop.md)
+* [Async JavaScript](javascript/async-javascript.md)
+* [Modern JavaScript Development](javascript/modern-javascript-development.md)
