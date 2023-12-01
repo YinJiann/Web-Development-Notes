@@ -2,7 +2,7 @@
 
 * Scripts are split into modules
 * Modules can be found online in Node Package Manager (NPM)
-* Before production, all modules are bundled and polyfilled (made understandable for older browsers)
+* Before production, all modules are bundled and transpile/polyfilled (made understandable for older browsers)
 
 
 

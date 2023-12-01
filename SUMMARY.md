@@ -1,8 +1,6 @@
 # Table of contents
 
 * [Read Me](README.md)
-* [Developer Tools](developer-tools.md)
-* [API](api.md)
 
 ## HTML
 
@@ -24,3 +22,13 @@
 * [OOP](javascript/oop.md)
 * [Async JavaScript](javascript/async-javascript.md)
 * [Modern JavaScript Development](javascript/modern-javascript-development.md)
+
+## Backend Programming
+
+* [Node.Js](backend-programming/node.js.md)
+
+## Misc
+
+* [Developer Tools](misc/developer-tools.md)
+* [API](misc/api.md)
+* [Git and GitHub](misc/git-and-github.md)
