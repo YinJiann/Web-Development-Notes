@@ -153,6 +153,7 @@ Promise.reject(new Error('Problem!')).catch(x => console.error(x));
 #### async-await functions
 
 * replacement for .then()
+* used with try-catch
 
 ```javascript
 const whereAmI = async function () {

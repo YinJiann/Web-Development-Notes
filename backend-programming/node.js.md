@@ -6,6 +6,17 @@
 * Not suitable for CPU-intensive server
 * Many module/package support
 * Single thread, non-blocking nature -> High performance and efficiency. However, async functions become important
+* Most code are executed in event loop, but high computation tasks are offloaded to other threads (4 by default)
+
+## Event Loop
+
+1. Expired Timer Callbacks
+2. I/O polling and callbacks
+3. SetImmediate callbacks
+4. Close callbacks
+
+* process.nextTick: Higher priority
+* microtasks (promises): Higher priority
 
 
 
@@ -37,7 +48,7 @@ node {.js file}
 
 
 
-## Node Coding
+## Node Practices
 
 #### To access other module
 
@@ -194,6 +205,8 @@ const server = http.createServer((req, res) => {
 });
 ```
 
+
+
 ```javascript
 //Exporting function
 module.exports = (temp, product) => {
@@ -213,63 +226,133 @@ module.exports = (temp, product) => {
 
 
 
-## NPM
+## Event Listener
 
-* Node package manager
+* Observer Pattern
+  * Event emitter
+  * Event listener
 
-#### Creating a package
+```javascript
+const EventEmitter = require("events");
+const http = require("http");
 
-* package.json&#x20;
+class Sales extends EventEmitter {
+  constructor() {
+    super();
+  }
+}
 
+const myEmitter = new Sales();
+
+//Emitters, all will execute when sending request
+myEmitter.on("newSale", () => {
+  console.log("There was a new sale!");
+});
+
+myEmitter.on("newSale", () => {
+  console.log("Costumer name: Jonas");
+});
+
+myEmitter.on("newSale", stock => {
+  console.log(`There are now ${stock} items left in stock.`);
+});
+
+myEmitter.emit("newSale", 9);
+
+//////////////////
+
+const server = http.createServer();
+
+//Listeners, both will execute when request received
+server.on("request", (req, res) => {
+  console.log("Request received!");
+  console.log(req.url);
+  res.end("Request received");
+});
+
+server.on("request", (req, res) => {
+  console.log("Another request 😀");
+});
+
+server.listen(8000, "127.0.0.1", () => {
+  console.log("Waiting for requests...");
+});
 ```
-npm init
+
+## Streams
+
+* Process data piece by piece without completing whole read/write operation, more memory efficient
+* Event emitters
+
+1. Readable stream
+
+* pipe(): pipe read data into a writeable destination
+
+1. Writeable stream
+2. Duplex stream: read and write
+3. Transform stream
+
+```javascript
+server.on("request", (req, res) => {
+  // Solution 1, no stream, too slow for big file
+   fs.readFile("test-file.txt", (err, data) => {
+     if (err) console.log(err);
+     res.end(data);
+   });
+
+  // Solution 2: Streams
+  //Suffer from back pressure, too much data, send too slow
+   const readable = fs.createReadStream("test-file.txt");
+   //write when data received in stream
+   readable.on("data", chunk => {
+     res.write(chunk);
+   });
+   //closing stream when no more data
+   readable.on("end", () => {
+     res.end();
+   });
+   //Handling errors
+   readable.on("error", err => {
+     console.log(err);
+     res.statusCode = 500;
+     res.end("File not found!");
+   });
+
+  // Solution 3
+  const readable = fs.createReadStream("test-file.txt");
+  readable.pipe(res);
+});
 ```
 
-#### Install packages
 
-* Production dependencies
-  * slugify: To manipulate URL to more readable parameters
 
-```
-npm install {package_name}
-```
+## Exporting modules
 
-* Development dependencies
-  * nodemon: Automatically restart server whenever changes to the code
+* Exporting a class
 
-```
-npm install {package_name} --save-dev
-```
+```javascript
+class Calculator {
+  add(a, b) {
+    return a + b;
+  }
 
-* Global installation
+  multiply(a, b) {
+    return a * b;
+  }
 
-```
-npm i {package_name} --global
-```
+  divide(a, b) {
+    return a / b;
+  }
+}
 
-#### Uninstall packages
-
-```json
-npm uninstall {package_name}
+module.exports = Calculator;
 ```
 
-#### Executing scripts in NPM
+* Exporting methods
 
-* Change "scripts" in package.json
+```javascript
+exports.add = (a, b) => a + b;
+exports.multiply = (a, b) => a * b;
+exports.divide = (a, b) => a / b;
 
-```json
-"scripts": {
-  "start": "nodemon index.js"
-},
-
-npm run start
-```
-
-#### Sharing development
-
-* Do not share node\_modules file
-* Share package.json and package-lock.json to let others reconstruct project
-
-```json
-npm install
 ```
