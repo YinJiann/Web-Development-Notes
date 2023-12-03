@@ -58,7 +58,7 @@ console.log("...")
 
 #### When to include script.js
 
-<figure><img src="../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
 
 * Either add at the end of the body
 * Or defer in the head

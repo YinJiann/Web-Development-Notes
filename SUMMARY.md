@@ -28,10 +28,12 @@
 * [Node.Js](backend-programming/node.js.md)
 * [NPM](backend-programming/npm.md)
 * [Express.Js](backend-programming/express.js.md)
+* [Postman](backend-programming/postman.md)
+* [REST API](backend-programming/rest-api.md)
 * [MongoDB](backend-programming/mongodb.md)
 
 ## Misc
 
 * [Developer Tools](misc/developer-tools.md)
-* [API](misc/api.md)
+* [API examples](misc/api-examples.md)
 * [Git and GitHub](misc/git-and-github.md)
