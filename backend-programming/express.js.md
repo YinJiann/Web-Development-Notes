@@ -38,7 +38,9 @@ app.listen(8000, () =>{
 * 200: OK
 * 201: When data successfully created
 * 204: When data successfully deleted
+* 400: Bad user request
 * 404: Error
+* 500: Internal server error
 
 #### Response methods
 
@@ -163,6 +165,26 @@ app
   .delete(deleteTour);
 ```
 
+#### Separating routing functions
+
+* Define a new router for each functionality
+* Remember to change the path namet
+
+```javascript
+const tourRouter = express.Router();
+
+tourRouter.route('/').get(getAllTours).post(createTour);
+tourRouter.route('/:id').get(getOneTour).patch(updateTour).delete(deleteTour);
+
+const userRouter = express.Router();
+
+userRouter.route("/'").get(getAllUsers).post(createUser);
+userRouter.route('/:id').get(getOneUser).patch(updateUser).delete(deleteUser);
+
+app.use('/api/v1/tours', tourRouter);
+app.use('/api/v1/users', userRouter);
+```
+
 
 
 ## Middleware
@@ -205,3 +227,50 @@ app.use((req, res, next) => {
 ```javascript
 npm i morgan
 ```
+
+#### Param Middleware
+
+* Middleware that only works when parameter is available, else ignored
+* Use case: Checking valid parameters
+
+```javascript
+router.param('id', (req, res, next, val) => {
+  console.log(`ID is ${val}`);
+  next();
+});
+```
+
+#### Middleware Chaining
+
+* checkBody is a middleware function declared in controller
+* HTTP response will go into middleware before handler
+
+```javascript
+router
+  .route('/')
+  .get(tourController.getAllTours)
+  .post(tourController.checkBody, tourController.createTour);
+```
+
+
+
+## File System Configuration
+
+* server.js
+  * Starting server
+* app.js
+  * Middleware
+  * Link to routers
+* Routes Folder
+  * Link to route handlers
+*   Controller Folder
+
+    * Handlers for routes
+    * Specific middleware
+
+
+
+## Enviroment Variables
+
+* Development
+* Production
