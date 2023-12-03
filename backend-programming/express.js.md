@@ -270,7 +270,37 @@ router
 
 
 
-## Enviroment Variables
+## Environment Variables
 
-* Development
+* Development: default mode
 * Production
+* Other variables
+  * Different databases
+
+```javascript
+console.log(app.get('env'));
+console.log(process.env);
+```
+
+#### To set environment in terminal
+
+```
+NODE_ENV={environment} nodemon server.js
+```
+
+#### config.env
+
+* file containing all environment variables
+
+<figure><img src="../.gitbook/assets/image (7).png" alt=""><figcaption></figcaption></figure>
+
+* use dotenv npm package for project to read config.env
+
+```
+npm i dotenv
+```
+
+```javascript
+const dotenv = require('dotenv');
+dotenv.config({ path: './config.env' });
+```
