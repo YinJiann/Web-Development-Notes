@@ -304,3 +304,11 @@ npm i dotenv
 const dotenv = require('dotenv');
 dotenv.config({ path: './config.env' });
 ```
+
+#### To access environment variables
+
+```javascript
+if (process.env.NODE_ENV === 'development') {
+  app.use(morgan('dev'));
+}
+```
