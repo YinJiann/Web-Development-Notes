@@ -31,6 +31,8 @@
 * [Postman](backend-programming/postman.md)
 * [REST API](backend-programming/rest-api.md)
 * [MongoDB](backend-programming/mongodb.md)
+* [Mongoose](backend-programming/mongoose.md)
+* [MVC](backend-programming/mvc.md)
 
 ## Misc
 
