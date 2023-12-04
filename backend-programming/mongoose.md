@@ -32,7 +32,7 @@ mongoose.connect(DB, {
 ## Schema
 
 * Blueprint for document
-* Schema types as needed
+* Schema properties as needed
 * Anything not in a schema is ignored when retrieved
 
 #### Declaration
@@ -89,8 +89,29 @@ const tourSchema = new mongoose.Schema({
   createdAt: {
     type: Date,
     default: Date.now(),
+    select:false // never appears in API response
   },
   startDates: [Date],
+});
+```
+
+#### Virtual Properties
+
+* Not saved in database schema, but is calculated whenever API is invoked
+  * ToJSON
+  * ToObject
+
+```javascript
+//Attach to end of schema
+{
+    toJSON: { virtuals: true },
+    toObject: { virtuals: true }
+}
+```
+
+```javascript
+tourSchema.virtual('durationWeeks').get(function() {
+  return this.duration / 7;
 });
 ```
 
@@ -300,7 +321,17 @@ console.log(req.query)
 
 #### Excluding fields
 
-* Page, sort, limit
+* Sorting
+  * Ascending or descending
+  * Sort by multiple parameters
+  * E.g. /?sort=name,data
+* Limit fields
+  * determine how much data is returned in the API call (less bandwidth)
+  * E.g. />fields=name,data
+* Pagination and limit
+  * Number of page
+  * How many to show per page
+  * E.g. /?page=2\&limit=100
 
 ```javascript
 class APIFeatures {
@@ -385,4 +416,26 @@ exports.getAllTours = async (req, res) => {
     });
   }
 };
+```
+
+
+
+## API Improvement: Aliasing
+
+* API calls that would be useful. E.g. Top five blah blah
+* Use middleware to prefill query string for user
+
+```javascript
+exports.aliasTopTours = (req, res, next) => {
+  req.query.limit = '5';
+  req.query.sort = '-ratingsAverage,price';
+  req.query.fields = 'name,price,ratingsAverage,summary,difficulty';
+  next();
+};
+```
+
+```javascript
+router
+  .route('/top-5-cheap')
+  .get(tourController.aliasTopTours, tourController.getAllTours);
 ```
