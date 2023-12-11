@@ -34,6 +34,8 @@
 * [MongoDB](backend-programming/mongodb.md)
 * [Mongoose](backend-programming/mongoose.md)
 * [Error Handling](backend-programming/error-handling.md)
+* [Authentication and Authorisation](backend-programming/authentication-and-authorisation.md)
+* [Email](backend-programming/email.md)
 
 ## Misc
 
